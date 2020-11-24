@@ -20,8 +20,6 @@
 </div>
 @endif
 
-<button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-import"></i> Import </button>
-<a href=" {{route('customer-export')}} "><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>
 
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,6 +54,8 @@
       <div class="card">
         <div class="container-fluid card-header">
             <div class="container-fluid card-header-action">
+            <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-import"></i> Import </button>
+            <a href=" {{route('customer-export')}} "><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>
             </div>
           <div class="card-header-form">
             <form>
