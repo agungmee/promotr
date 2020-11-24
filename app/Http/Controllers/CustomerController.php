@@ -7,6 +7,8 @@ use App\Customer;
 
 use Session;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Exports\ListCustomerExport;
 use App\Imports\ListCustomerImport;
 
@@ -23,6 +25,17 @@ class CustomerController extends Controller
     public function index()
     {   
         $customer = Customer::paginate(10);
+        return view('pages.customers.list_customer',compact('customer'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $customer = DB::table('customers')
+        ->where('cust_name','like',"%".$search."%")
+        ->paginate();
+
         return view('pages.customers.list_customer',compact('customer'));
     }
 
@@ -57,6 +70,15 @@ class CustomerController extends Controller
         return redirect('/list-customers');
     }
 
+    public function docIndex()
+    {
+        return view('pages.customers.doc_customer');
+    }
+
+    public function docImport(Request $request)
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.

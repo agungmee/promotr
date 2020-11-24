@@ -56,9 +56,9 @@
             <a href=" {{route('customer-export')}} "><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>
             </div>
           <div class="card-header-form">
-            <form>
+              <form action=" {{ route('customer-search') }} " method="GET">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" name="search" placeholder="Search">
                 <div class="input-group-btn">
                   <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>

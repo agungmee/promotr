@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
-<?php $__env->startSection('title','PromoTR - List Customers'); ?>
-<?php $__env->startSection('title_header','List Customers'); ?>
+<?php $__env->startSection('title','PromoTR - Doc Customers'); ?>
+<?php $__env->startSection('title_header','Doc Customers'); ?>
 
 
 
@@ -56,9 +56,9 @@
             <a href=" <?php echo e(route('customer-export')); ?> "><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>
             </div>
           <div class="card-header-form">
-              <form action=" <?php echo e(route('customer-search')); ?> " method="GET">
+            <form>
               <div class="input-group">
-                <input type="text" class="form-control" name="search" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-btn">
                   <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
@@ -73,25 +73,25 @@
                 
                 <th>Nama Customer</th>
                 <th>Site</th>
-                <th>Address</th>
-                <th>Salesrep</th>
-                <th>Doc Status</th>
+                <th>KTP</th>
+                <th>NPWP</th>
+                <th>SPPKP</th>
+                <th>Foto Toko</th>
                 <th>Action</th>
               </tr>
-              <?php $__currentLoopData = $customer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cust): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              
               <tr>
                 
-                <td> <?php echo e($cust->cust_name); ?> </td>
-                <td> <?php echo e($cust->cust_site); ?> </td>
-                <td> <?php echo e($cust->cust_address); ?> </td>
-                <td> <?php echo e($cust->sales_name); ?> </td>
-                <td><div class="badge badge-success">Completed</div></td>
-                <td><a href="#" class="btn btn-primary">Edit</a></td>
+                <td>  </td>
+                <td>  </td>
+                <td>  </td>
+                <td>  </td>
+                <td>  </td>
+                
               </tr>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              
             </table>
-            <?php echo e($customer->links()); ?>
-
+            
           </div>
         </div>
       </div>
@@ -99,4 +99,4 @@
   </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/pages/customers/list_customer.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/pages/customers/doc_customer.blade.php ENDPATH**/ ?>
