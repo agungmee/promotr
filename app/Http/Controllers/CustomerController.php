@@ -51,7 +51,7 @@ class CustomerController extends Controller
         Excel::import(new ListCustomerImport, public_path('/listcustomer/'.$nama_file));
 
         // notifikasi dengan session
-        Session::flash('sukses','Data Siswa Berhasil Di Import!');
+        Session::flash('sukses','Data Customer Berhasil Di Import!');
         
         // diarahkan kembali ke halaman utama
         return redirect('/list-customers');
