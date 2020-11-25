@@ -16,7 +16,7 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-image"></i> <span>Visibility Led Club</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="layout-default.html">LEDClub 2020</a></li>
+              <li><a class="nav-link" href=" {{ route('ledclub20') }} ">LEDClub 2020</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

@@ -21,3 +21,6 @@ Route::post('customer-import', 'CustomerController@import')->name('customer-impo
 // Route Customer Dokumentasi
 Route::get('doc-customer','CustomerController@docIndex')->name('doc-index');
 Route::post('doc-import','CustomerController@docImport')->name('doc-import');
+
+// Route Promo
+Route::get('ledclub2020','PromoController@ledclubIndex')->name('ledclub20');
