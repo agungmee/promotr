@@ -950,6 +950,13 @@ table tr:hover .table-links {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.02); }
 
+.collapsed .icon-class:before {
+  content: '+';
+}
+.icon-class:before {
+	content: '-';
+}
+
 @media (max-width: 575.98px) {
   .table-responsive table {
     min-width: 800px; } }
