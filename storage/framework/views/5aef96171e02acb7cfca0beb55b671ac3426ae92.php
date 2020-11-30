@@ -22,7 +22,7 @@
 <!-- Upload Image -->
 <div class="modal fade" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action=" <?php echo e(route('doc-upload')); ?> " enctype="multipart/form-data">
+    <form method="post" action="<?php echo e(route('doc-upload')); ?>" enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Upload Image</h5>
@@ -92,7 +92,7 @@
                 <td> <?php echo e($d->cust_name); ?> </td>
                 <td> <?php echo e($d->doc_type); ?> </td>
                 <td><img width="100px" src=" <?php echo e(url('/imagedoc/'.$d->image)); ?> " alt="">  </td>
-                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                <td><a href="doc-customer/delete/<?php echo e($d->upload_id); ?>" class="btn btn-danger">Delete</a></td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>

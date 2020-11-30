@@ -2,7 +2,6 @@
 <?php $__env->startSection('title','PromoTR - LEDClub 2020'); ?>
 <?php $__env->startSection('title_header','LEDClub 2020'); ?>
 
-
 <div class="row">
     <div class="col-12">
       <div class="card">

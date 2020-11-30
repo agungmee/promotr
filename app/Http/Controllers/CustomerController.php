@@ -8,6 +8,8 @@ use App\UploadDoc;
 
 use Session;
 
+use File;
+
 use Illuminate\Support\Facades\DB;
 
 use App\Exports\ListCustomerExport;
@@ -96,17 +98,25 @@ class CustomerController extends Controller
 
         $cust_code = substr($nama_file,0,5);
 
-        $mimeType = $image->getMimeType();
-
-        $cust_name = preg_replace($mimeType,'.',substr($nama_file,0,100));
+        $cust_name = substr($nama_file,0,100);
 
 
         UploadDoc::create([
             'cust_code' => $cust_code,
             'cust_name' => $cust_name,
             'image' => $nama_file,
-            'doc_type' => $request->doctype,
+            'doc_type' => $docType,
         ]);
+
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {   
+        $image = UploadDoc::where('upload_id',$id)->first();
+        File::delete('imagedoc/'.$image->file);
+
+        UploadDoc::where('upload_id',$id)->delete();
 
         return redirect()->back();
     }

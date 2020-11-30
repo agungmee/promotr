@@ -23,7 +23,7 @@
 <!-- Upload Image -->
 <div class="modal fade" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action=" {{route('doc-upload')}} " enctype="multipart/form-data">
+    <form method="post" action="{{route('doc-upload')}}" enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Upload Image</h5>
@@ -102,7 +102,7 @@
                 <td> {{$d->cust_name}} </td>
                 <td> {{$d->doc_type}} </td>
                 <td><img width="100px" src=" {{ url('/imagedoc/'.$d->image) }} " alt="">  </td>
-                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                <td><a href="doc-customer/delete/{{$d->upload_id}}" class="btn btn-danger">Delete</a></td>
               </tr>
               @endforeach
             </table>
