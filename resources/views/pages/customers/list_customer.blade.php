@@ -76,11 +76,15 @@
                     <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
                   </div>
                 </th> --}}
-                <th>Nama Customer</th>
+                <th>Customer Code</th>
+                <th>Customer Name</th>
                 <th>Site</th>
                 <th>Address</th>
                 <th>Salesrep</th>
-                <th>Doc Status</th>
+                <th>KTP</th>
+                <th>NPWP</th>
+                <th>SPPKP</th>
+                <th>Foto Toko</th>
                 <th>Action</th>
               </tr>
               @foreach ($customer as $cust)
@@ -91,11 +95,15 @@
                     <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                   </div>
                 </td> --}}
+                <td> {{$cust->cust_code}} </td>
                 <td> {{$cust->cust_name}} </td>
                 <td> {{$cust->cust_site}} </td>
                 <td> {{$cust->cust_address}} </td>
                 <td> {{$cust->sales_name}} </td>
-                <td><div class="badge badge-success">Completed</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
                 <td><a href="#" class="btn btn-primary">Edit</a></td>
               </tr>
               @endforeach

@@ -15,12 +15,13 @@ class ListCustomerImport implements ToModel
     public function model(array $row)
     {
         return new Customer([
-            'cust_name' => $row[0],
-            'cust_site' => $row[1],
-            'cust_address' => $row[2],
-            'sales_id' => $row[3],
-            'sales_name' => $row[4],
-            'cust_category' => $row[5],
+            'cust_code' => $row[0],
+            'cust_name' => $row[1],
+            'cust_site' => $row[2],
+            'cust_address' => $row[3],
+            'sales_id' => $row[4],
+            'sales_name' => $row[5],
+            'cust_category' => $row[6],
         ]);
     }
 }

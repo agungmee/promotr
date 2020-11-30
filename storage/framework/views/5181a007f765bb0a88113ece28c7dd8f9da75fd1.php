@@ -1,7 +1,7 @@
-@extends('layouts.app')
-@section('content')
-@section('title','PromoTR - LEDClub 2020')
-@section('title_header','LEDClub 2020')
+<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('title','PromoTR - LEDClub 2020'); ?>
+<?php $__env->startSection('title_header','LEDClub 2020'); ?>
+
 
 <div class="row">
     <div class="col-12">
@@ -24,12 +24,7 @@
           <div class="table-responsive">
             <table class="table table-striped">
               <tr>
-                {{-- <th>
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad" class="custom-control-input" id="checkbox-all">
-                    <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </th> --}}
+                
                 <th></th>
                 <th>Nama Customer</th>
                 <th>Site</th>
@@ -39,14 +34,9 @@
                 <th>Foto Toko</th>
                 <th>Action</th>
               </tr>
-              {{-- @foreach ($customer as $cust) --}}
+              
               <tr class="collapsed" data-toggle="collapse" data-target=".parent1Content">
-                {{-- <td class="p-0 text-center">
-                  <div class="custom-checkbox custom-control">
-                    <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
-                    <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                  </div>
-                </td> --}}
+                
                 <td class="icon-class"></td>
                 <td>Pioneer</td>
                 <td>Satu</td>
@@ -54,7 +44,7 @@
                 <td>Tiga</td>
                 <td>Empat</td>
                 <td>Lima</td>
-                {{-- <td><a href="#" class="btn btn-primary">Edit</a></td> --}}
+                
 
               </tr>
               <tr class="collapse parent1Content">
@@ -74,18 +64,20 @@
                 <td>04/04/2017</td>
               </tr>    
 
-              {{-- @endforeach --}}
+              
             </table>
-            {{-- {{ $customer->links() }} --}}
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('after-script')
+<?php $__env->startPush('after-script'); ?>
 $('[data-toggle="collapse"]').on('click', function() {
   $(this).toggleClass('collapsed');
 });
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/pages/promo/ledclub/ledclub2020.blade.php ENDPATH**/ ?>

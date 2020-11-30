@@ -71,21 +71,29 @@
             <table class="table table-striped">
               <tr>
                 
-                <th>Nama Customer</th>
+                <th>Customer Code</th>
+                <th>Customer Name</th>
                 <th>Site</th>
                 <th>Address</th>
                 <th>Salesrep</th>
-                <th>Doc Status</th>
+                <th>KTP</th>
+                <th>NPWP</th>
+                <th>SPPKP</th>
+                <th>Foto Toko</th>
                 <th>Action</th>
               </tr>
               <?php $__currentLoopData = $customer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cust): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
                 
+                <td> <?php echo e($cust->cust_code); ?> </td>
                 <td> <?php echo e($cust->cust_name); ?> </td>
                 <td> <?php echo e($cust->cust_site); ?> </td>
                 <td> <?php echo e($cust->cust_address); ?> </td>
                 <td> <?php echo e($cust->sales_name); ?> </td>
-                <td><div class="badge badge-success">Completed</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
+                <td><div class="badge badge-success">OK</div></td>
                 <td><a href="#" class="btn btn-primary">Edit</a></td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

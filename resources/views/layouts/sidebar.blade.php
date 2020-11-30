@@ -44,7 +44,7 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i> <span>Customers</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href=" {{ route('list-customers') }} ">List Customers</a></li>
-              <li><a class="nav-link" href=" {{ route('doc-index') }} ">Dokumentasi Customers</a></li>
+              <li><a class="nav-link" href=" {{ route('doc-index') }} ">Upload Doc</a></li>
             </ul>
           </li>
 

@@ -16,7 +16,7 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-image"></i> <span>Visibility Led Club</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="layout-default.html">LEDClub 2020</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('ledclub20')); ?> ">LEDClub 2020</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -44,7 +44,7 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i> <span>Customers</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href=" <?php echo e(route('list-customers')); ?> ">List Customers</a></li>
-              <li><a class="nav-link" href=" <?php echo e(route('doc-index')); ?> ">Dokumentasi Customers</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('doc-index')); ?> ">Upload Doc</a></li>
             </ul>
           </li>
 

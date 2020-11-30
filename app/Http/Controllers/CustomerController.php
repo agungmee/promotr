@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\UploadDoc;
 
 use Session;
 
@@ -72,12 +73,42 @@ class CustomerController extends Controller
 
     public function docIndex()
     {
-        return view('pages.customers.doc_customer');
+        $data = UploadDoc::paginate(5);
+        return view('pages.customers.doc_upload',compact('data'));
     }
 
-    public function docImport(Request $request)
-    {
-        //
+    public function docUpload(Request $request)
+    {   
+        $docType = $request->doctype;
+
+        $this->validate($request, [
+            'image' => 'required|file|image|mimes:jpeg,jpg,png,svg|max:2048',
+            'doctype' => 'required'
+        ]);
+
+        $image = $request->file('image');
+
+        $nama_file = $image->getClientOriginalName();
+
+        $folder_upload = 'imagedoc';
+        
+        $image->move($folder_upload,$nama_file);
+
+        $cust_code = substr($nama_file,0,5);
+
+        $mimeType = $image->getMimeType();
+
+        $cust_name = preg_replace($mimeType,'.',substr($nama_file,0,100));
+
+
+        UploadDoc::create([
+            'cust_code' => $cust_code,
+            'cust_name' => $cust_name,
+            'image' => $nama_file,
+            'doc_type' => $request->doctype,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
