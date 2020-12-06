@@ -3,11 +3,41 @@
 @section('title','PromoTR - LEDClub 2020')
 @section('title_header','LEDClub 2020')
 
+<!-- Import Excel -->
+<div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form method="post" action="#" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+        </div>
+        <div class="modal-body">
+
+          {{ csrf_field() }}
+
+          <label>Pilih file excel</label>
+          <div class="form-group">
+            <input type="file" name="file" required="required">
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Import</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
 <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="container-fluid card-header">
             <div class="container-fluid card-header-action">
+              <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#importExcel"><i class="fas fa-file-import"></i> Import </button>
+              <a href="#"><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>  
             </div>
           <div class="card-header-form">
             <form>
@@ -33,13 +63,12 @@
                 <th></th>
                 <th>Nama Customer</th>
                 <th>Site</th>
-                <th>KTP</th>
-                <th>NPWP</th>
-                <th>SPPKP</th>
-                <th>Foto Toko</th>
+                <th>Total Benefit</th>
+                <th>Total Realisasi</th>
+                <th>Sisa Benefit</th>
                 <th>Action</th>
               </tr>
-              {{-- @foreach ($customer as $cust) --}}
+              @foreach ($promoledclub as $ledclub)
               <tr class="collapsed" data-toggle="collapse" data-target=".parent1Content">
                 {{-- <td class="p-0 text-center">
                   <div class="custom-checkbox custom-control">
@@ -49,43 +78,39 @@
                 </td> --}}
                 <td class="icon-class"></td>
                 <td>Pioneer</td>
-                <td>Satu</td>
-                <td>Dua</td>
-                <td>Tiga</td>
-                <td>Empat</td>
-                <td>Lima</td>
+                <td>TR1</td>
+                <td>10.000.000</td>
+                <td>5.000.000</td>
+                <td>5.000.000</td>
                 {{-- <td><a href="#" class="btn btn-primary">Edit</a></td> --}}
 
               </tr>
               <tr class="collapse parent1Content">
                 <td></td>
-                <td>Child A</td>
-                <td>04/01/2017</td>
-                <td>04/05/2017</td>
-                <td>Child A</td>
-                <td>04/01/2017</td>
-                <td>Child A</td>
+                <td>Januari</td>
+                <td></td>
+                <td>1.000.000</td>
+                <td>300.000</td>
+                <td>700.000</td>
+                <td><a href="#" class="btn btn-primary">Edit</a></td>
               </tr>
               
               <tr class="collapse parent1Content">
                 <td></td>
-                <td>Child B</td>
-                <td>04/03/2017</td>
-                <td>04/04/2017</td>
-              </tr>    
+                <td>Maret</td>
+                <td></td>
+                <td>5.000.000</td>
+                <td>2.000.000</td>
+                <td>3.000.000</td>
+                <td><a href="#" class="btn btn-primary">Edit</a></td>
+              </tr>
 
-              {{-- @endforeach --}}
+              @endforeach
             </table>
-            {{-- {{ $customer->links() }} --}}
+            {{ $promoledclub->links() }}
           </div>
         </div>
       </div>
     </div>
   </div>
 @endsection
-
-@push('after-script')
-$('[data-toggle="collapse"]').on('click', function() {
-  $(this).toggleClass('collapsed');
-});
-@endpush

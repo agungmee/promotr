@@ -6713,3 +6713,15 @@
 #45 /opt/lampp/htdocs/promotr2/server.php(21): require_once('/opt/lampp/htdo...')
 #46 {main}
 "} 
+[2020-12-05 22:46:55] local.ERROR: Not enough arguments (missing: "name"). {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): Not enough arguments (missing: \"name\"). at /opt/lampp/htdocs/promotr2/vendor/symfony/console/Input/Input.php:76)
+[stacktrace]
+#0 /opt/lampp/htdocs/promotr2/vendor/symfony/console/Command/Command.php(253): Symfony\\Component\\Console\\Input\\Input->validate()
+#1 /opt/lampp/htdocs/promotr2/vendor/laravel/framework/src/Illuminate/Console/Command.php(121): Symfony\\Component\\Console\\Command\\Command->run()
+#2 /opt/lampp/htdocs/promotr2/vendor/symfony/console/Application.php(920): Illuminate\\Console\\Command->run()
+#3 /opt/lampp/htdocs/promotr2/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->doRunCommand()
+#4 /opt/lampp/htdocs/promotr2/vendor/symfony/console/Application.php(142): Symfony\\Component\\Console\\Application->doRun()
+#5 /opt/lampp/htdocs/promotr2/vendor/laravel/framework/src/Illuminate/Console/Application.php(93): Symfony\\Component\\Console\\Application->run()
+#6 /opt/lampp/htdocs/promotr2/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(129): Illuminate\\Console\\Application->run()
+#7 /opt/lampp/htdocs/promotr2/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#8 {main}
+"} 
