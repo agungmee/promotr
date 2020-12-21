@@ -23,5 +23,8 @@ Route::get('doc-customer','CustomerController@docIndex')->name('doc-index')->mid
 Route::post('doc-upload','CustomerController@docUpload')->name('doc-upload')->middleware('userauth');
 Route::get('doc-customer/delete/{id}','CustomerController@delete')->middleware('userauth');
 
-// Route Promo
-Route::get('ledclub2020','PromoController@ledclubIndex')->name('ledclub20')->middleware('userauth');
+// Route Promo LEDClub 2021
+Route::get('philips2021','PromoController@philips2021Index')->name('philips2021')->middleware('userauth');
+Route::post('philips2021import','PromoController@philips2021Upload')->name('philips2021import')->middleware('userauth');
+Route::get('dataledclub2021','PromoController@dataLedclubIndex')->name('dataledclub2021')->middleware('userauth');
+Route::post('philips2021upload','PromoController@dataLedclubUpload')->name('philips2021upload')->middleware('userauth');

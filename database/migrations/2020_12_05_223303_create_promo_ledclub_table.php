@@ -13,14 +13,16 @@ class CreatePromoLedclubTable extends Migration
      */
     public function up()
     {
-        Schema::create('promo_ledclub', function (Blueprint $table) {
+        Schema::create('philips2021', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cust_code');
             $table->string('cust_name');
+            $table->string('cust_site');
             $table->string('promo_name');
             $table->string('promo_period');
-            $table->integer('nilai_periode');
-            $table->integer('nilai_potong');
+            $table->string('sales_name');
+            $table->integer('nilai_benefit');
+            $table->integer('nilai_realisasi');
             $table->timestamps();
         });
     }

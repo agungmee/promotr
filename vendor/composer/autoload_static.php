@@ -606,6 +606,8 @@ class ComposerStaticInitddc919f9aa1c4df44250825292630c04
         'App\\Http\\Middleware\\UserAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/UserAuth.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Imports\\ListCustomerImport' => __DIR__ . '/../..' . '/app/Imports/ListCustomerImport.php',
+        'App\\Imports\\Philips2020Import' => __DIR__ . '/../..' . '/app/Imports/Philips2020Import.php',
+        'App\\Philips2020' => __DIR__ . '/../..' . '/app/Philips2020.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

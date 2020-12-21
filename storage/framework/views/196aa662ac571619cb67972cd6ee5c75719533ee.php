@@ -1,11 +1,11 @@
 <?php $__env->startSection('content'); ?>
-<?php $__env->startSection('title','PromoTR - LEDClub 2020'); ?>
-<?php $__env->startSection('title_header','LEDClub 2020'); ?>
+<?php $__env->startSection('title','PromoTR - Philips 2021'); ?>
+<?php $__env->startSection('title_header','Monitoring Promo Philips 2021'); ?>
 
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action="#" enctype="multipart/form-data">
+    <form method="post" action=" <?php echo e(route('philips2021upload')); ?> " enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -29,7 +29,6 @@
     </form>
   </div>
 </div>
-
 
 <div class="row">
     <div class="col-12">
@@ -55,49 +54,46 @@
             <table class="table table-striped">
               <tr>
                 
-                <th></th>
                 <th>Nama Customer</th>
-                <th>Site</th>
-                <th>Total Benefit</th>
-                <th>Total Realisasi</th>
+                <th>Teritori</th>
+                <th>Nama Promo</th>
+                <th>Periode</th>
+                <th>Nama Sales</th>
+                <th>Nilai Benefit</th>
+                <th>Nilai Realisasi</th>
                 <th>Sisa Benefit</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
-              <?php $__currentLoopData = $promoledclub; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ledclub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <tr class="collapsed" data-toggle="collapse" data-target=".parent1Content">
-                
-                <td class="icon-class"></td>
-                <td>Pioneer</td>
-                <td>TR1</td>
-                <td>10.000.000</td>
-                <td>5.000.000</td>
-                <td>5.000.000</td>
-                
+              <?php 
+                function rupiah($angka)
+                {
+                  $format_rupiah = "Rp " . number_format($angka,2,',','.');
+                  return $format_rupiah;
+                }
+              ?>
+              <?php $__currentLoopData = $promo2021; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pr2021): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <tr>
+                <td> <?php echo e($pr2021->cust_name); ?> </td>
+                <td> <?php echo e($pr2021->cust_site); ?> </td>
+                <td> <?php echo e($pr2021->promo_name); ?> </td>
+                <td> <?php echo e($pr2021->promo_period); ?> </td>
+                <td> <?php echo e($pr2021->sales_name); ?> </td>
+                <td> <?php echo e(rupiah($pr2021->nilai_benefit)); ?> </td>
+                <td> <?php echo e(rupiah($pr2021->nilai_realisasi)); ?> </td>
+                <td> <?php echo e(rupiah($pr2021->nilai_benefit - $pr2021->nilai_realisasi)); ?> </td>
 
+                <?php if($pr2021->nilai_benefit - $pr2021->nilai_realisasi > 0): ?>
+                <td>Belum Selesai</td>
+                <?php else: ?>
+                <td>Selesai</td>
+                <?php endif; ?>
+                
+                <td><a href="#" class="btn btn-primary">Update</a></td>
               </tr>
-              <tr class="collapse parent1Content">
-                <td></td>
-                <td>Januari</td>
-                <td></td>
-                <td>1.000.000</td>
-                <td>300.000</td>
-                <td>700.000</td>
-                <td><a href="#" class="btn btn-primary">Edit</a></td>
-              </tr>
-              
-              <tr class="collapse parent1Content">
-                <td></td>
-                <td>Maret</td>
-                <td></td>
-                <td>5.000.000</td>
-                <td>2.000.000</td>
-                <td>3.000.000</td>
-                <td><a href="#" class="btn btn-primary">Edit</a></td>
-              </tr>
-
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>
-            <?php echo e($promoledclub->links()); ?>
+            <?php echo e($promo2021->links()); ?>
 
           </div>
         </div>
@@ -106,4 +102,4 @@
   </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/pages/promo/ledclub/ledclub2020.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/pages/promo/2021/philips2021.blade.php ENDPATH**/ ?>

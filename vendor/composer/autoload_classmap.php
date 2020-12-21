@@ -31,6 +31,8 @@ return array(
     'App\\Http\\Middleware\\UserAuth' => $baseDir . '/app/Http/Middleware/UserAuth.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Imports\\ListCustomerImport' => $baseDir . '/app/Imports/ListCustomerImport.php',
+    'App\\Imports\\Philips2020Import' => $baseDir . '/app/Imports/Philips2020Import.php',
+    'App\\Philips2020' => $baseDir . '/app/Philips2020.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

@@ -14,28 +14,23 @@
 
           <li class="menu-header">Promo</li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-image"></i> <span>Visibility Led Club</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-percent"></i></i> <span>Monitoring 2021</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href=" <?php echo e(route('ledclub20')); ?> ">LEDClub 2020</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('philips2021')); ?> ">LEDClub 2021</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-percent"></i> <span>Keris</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i></i> <span>Data Promo 2021</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="layout-default.html">Keris 2020</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('dataledclub2021')); ?> ">LEDClub 2021</a></li>
             </ul>
           </li>
+
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-qrcode"></i> <span>Semarak</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-check-double"></i></i> <span>Validasi 2021</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="layout-default.html">Semarak Merdeka</a></li>
-              <li><a class="nav-link" href="layout-default.html">Semarak Akhir Tahun</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-money-bill-alt"></i> <span>Serbu</span></a>
-            <ul class="dropdown-menu">
-              <li><a class="nav-link" href="layout-default.html">Serbu 2020</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('dataledclub2021')); ?> ">LEDClub 2021</a></li>
             </ul>
           </li>
 
@@ -44,7 +39,7 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i> <span>Customers</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href=" <?php echo e(route('list-customers')); ?> ">List Customers</a></li>
-              <li><a class="nav-link" href=" <?php echo e(route('doc-index')); ?> ">Upload Doc</a></li>
+              <li><a class="nav-link" href=" <?php echo e(route('doc-index')); ?> ">Upload Dokumen</a></li>
             </ul>
           </li>
 
@@ -60,11 +55,5 @@
             </ul>
           </li>
         </ul>
-
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-          <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-            <i class="fas fa-rocket"></i> Documentation
-          </a>
-        </div>
     </aside>
 </div><?php /**PATH /opt/lampp/htdocs/promotr2/resources/views/layouts/sidebar.blade.php ENDPATH**/ ?>
