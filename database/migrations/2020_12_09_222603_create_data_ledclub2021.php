@@ -34,6 +34,8 @@ class CreateDataLedclub2021 extends Migration
             $table->string('image5');
             $table->string('image6');
             $table->integer('nilai_benefit');
+            $table->string('validation')->nullable();
+            $table->string('last_updated_by')->nullable();
             $table->timestamps();
         });
     }

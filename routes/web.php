@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 // Route Auth
 Route::get('/', function () {
     return view('auth.login');
@@ -10,7 +9,6 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 // Route Customers
 Route::get('list-customers','CustomerController@index')->name('list-customers')->middleware('userauth');
@@ -28,3 +26,8 @@ Route::get('philips2021','PromoController@philips2021Index')->name('philips2021'
 Route::post('philips2021import','PromoController@philips2021Upload')->name('philips2021import')->middleware('userauth');
 Route::get('dataledclub2021','PromoController@dataLedclubIndex')->name('dataledclub2021')->middleware('userauth');
 Route::post('philips2021upload','PromoController@dataLedclubUpload')->name('philips2021upload')->middleware('userauth');
+Route::get('dataledclub2021/delete/{id}','PromoController@destroy')->middleware('userauth');
+Route::get('dataledclub2021/edit/{id}','PromoController@edit')->middleware('userauth');
+Route::post('dataledclub2021/validasi/{id}','PromoController@validasi')->middleware('userauth');
+Route::get('dataledclub2021/search','PromoController@search')->name('dataledclub2021-search')->middleware('userauth');
+

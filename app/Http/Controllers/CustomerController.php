@@ -37,7 +37,7 @@ class CustomerController extends Controller
 
         $customer = DB::table('customers')
         ->where('cust_name','like',"%".$search."%")
-        ->paginate();
+        ->paginate(5);
 
         return view('pages.customers.list_customer',compact('customer'));
     }
