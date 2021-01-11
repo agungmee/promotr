@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\Philips2021Import;
-use App\DataPhilips2021;
+use App\Imports\PhilipsPromoImport;
+use App\DataPhilips;
 use Session;
 
 use Illuminate\Http\Request;
@@ -13,13 +13,13 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PromoController extends Controller
 {
-    public function philips2021Index()
+    public function promoPhilipsIndex()
     {   
-        $promo2021 = DataPhilips2021::paginate(10);
-        return view('pages.promo.2021.philips2021',compact('promo2021'));
+        $philipsPromo = DataPhilips::paginate(10);
+        return view('pages.promo.2021.promophilips',compact('philipsPromo'));
     }
 
-    public function philips2021Upload(Request $request)
+    public function philipsUpload(Request $request)
     {
         // validate
         $this->validate($request, [
@@ -33,26 +33,26 @@ class PromoController extends Controller
         $nama_file = rand().$file->getClientOriginalName();
 
         // upload ke folder listcustomer dalam folder public/promo
-        $file->move('promo/philips2021',$nama_file);
+        $file->move('promo/dataphilips',$nama_file);
 
         // import data
-        Excel::import(new Philips2021Import, public_path('/promo/philips2021/'.$nama_file));
+        Excel::import(new PhilipsPromoImport, public_path('/promo/dataphilips/'.$nama_file));
 
         // notifikasi dengan session
-        Session::flash('sukses','Data Promo Philips 2021 Berhasil Di Import!');
+        Session::flash('sukses','Data Promo Philips Berhasil Di Import!');
         
-        // diarahkan kembali ke halaman utama
-        return redirect('/philips2021');
+        // diarahkan kembali ke halaman sebelumnya
+        return redirect()->back();
         
     }
     
-    public function dataLedclubIndex()
+    public function dataPromoPhilipsIndex()
     {   
-        $dataledclub2021 = DataPhilips2021::all();
-        return view('pages.promo.2021.dataledclub2021',compact('dataledclub2021'));
+        $dataPromoPhilips = DataPhilips::paginate(5);
+        return view('pages.promo.2021.datapromophilips',compact('dataPromoPhilips'));
     }
 
-    public function dataLedclubUpload(Request $request)
+    public function dataPromoPhilipsUpload(Request $request)
     {   
         //validate
         $this->validate($request, [
@@ -79,12 +79,12 @@ class PromoController extends Controller
         if ($request->hasFile('file6')) {$img6_name = time()."_". $img6->getClientOriginalName();} else {$img6_name = "";}
 
         //move to image folder
-        if ($request->hasFile('file1')) { $img1->move('promo/dataledclub2021',$img1_name); }
-        if ($request->hasFile('file2')) { $img2->move('promo/dataledclub2021',$img2_name); }
-        if ($request->hasFile('file3')) { $img3->move('promo/dataledclub2021',$img3_name); }
-        if ($request->hasFile('file4')) { $img4->move('promo/dataledclub2021',$img4_name); }
-        if ($request->hasFile('file5')) { $img5->move('promo/dataledclub2021',$img5_name); }
-        if ($request->hasFile('file6')) { $img6->move('promo/dataledclub2021',$img6_name); }
+        if ($request->hasFile('file1')) { $img1->move('promo/datapromophilips',$img1_name); }
+        if ($request->hasFile('file2')) { $img2->move('promo/datapromophilips',$img2_name); }
+        if ($request->hasFile('file3')) { $img3->move('promo/datapromophilips',$img3_name); }
+        if ($request->hasFile('file4')) { $img4->move('promo/datapromophilips',$img4_name); }
+        if ($request->hasFile('file5')) { $img5->move('promo/datapromophilips',$img5_name); }
+        if ($request->hasFile('file6')) { $img6->move('promo/datapromophilips',$img6_name); }
         
         //left to get code
         $cust_code = substr(($request->customer_name),0,5);
@@ -97,7 +97,7 @@ class PromoController extends Controller
         if ($request->wifi_t > 0) {$wifi_t = $request->wifi_t;} else {$wifi_t = "-";}
 
         //store data
-        DataPhilips2021::create([
+        DataPhilips::create([
         'cust_site' => $request->customer_site,
         'cust_code' => $cust_code,
         'cust_name' => $request->customer_name,
@@ -125,7 +125,7 @@ class PromoController extends Controller
 
     public function validasi(Request $request, $id)
     {
-        $validasi = DataPhilips2021::find($id);
+        $validasi = DataPhilips::find($id);
         $validasi->validation = $request->validasi;
         $validasi->save();
 
@@ -134,7 +134,7 @@ class PromoController extends Controller
 
     public function destroy($id)
     {   
-        $gambar = DataPhilips2021::findorfail($id);
+        $gambar = DataPhilips::findorfail($id);
 
         $file1 = public_path('/promo/dataledclub2021/').$gambar->image1;
         $file2 = public_path('/promo/dataledclub2021/').$gambar->image2;
@@ -162,11 +162,11 @@ class PromoController extends Controller
     {
         $search = $request->search;
 
-        $dataledclub2021 = DB::table('data_ledclub2021')
+        $dataPromoPhilips = DB::table('data_ledclub2021')
         ->where('cust_name','like',"%".$search."%")
         ->paginate(5);
 
-        return view('pages.promo.2021.dataledclub2021',compact('dataledclub2021'));
+        return view('pages.promo.2021.dataphilips',compact('dataPromoPhilips'));
     }
 
 }

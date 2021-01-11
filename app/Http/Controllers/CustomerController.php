@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
-use App\UploadDoc;
 
 use Session;
-
-use File;
 
 use Illuminate\Support\Facades\DB;
 
@@ -73,117 +70,54 @@ class CustomerController extends Controller
         return redirect('/list-customers');
     }
 
-    public function docIndex()
-    {
-        $data = UploadDoc::paginate(5);
-        return view('pages.customers.doc_upload',compact('data'));
-    }
-
-    public function docUpload(Request $request)
+    public function docUpload(Request $request, $id)
     {   
-        $docType = $request->doctype;
+        if ($files = $request->file('ktp')) {
+            $destinationPath = 'cust_doc/';
+            $imageDisplay = date('YmdHis') . "_" . $request->file('ktp')->getClientOriginalName();
+            $files->move($destinationPath, $imageDisplay);
+            $update['ktp_image'] = "$imageDisplay";
+            Customer::where('id',$id)->update($update);
+        }
 
-        $this->validate($request, [
-            'image' => 'required|file|image|mimes:jpeg,jpg,png,svg|max:2048',
-            'doctype' => 'required'
-        ]);
+        if ($files = $request->file('npwp')) {
+            $destinationPath = 'cust_doc/';
+            $imageDisplay = date('YmdHis') . "_" . $request->file('npwp')->getClientOriginalName();
+            $files->move($destinationPath, $imageDisplay);
+            $update['npwp_image'] = "$imageDisplay";
+            Customer::where('id',$id)->update($update);
+        }
 
-        $image = $request->file('image');
+        if ($files = $request->file('sppkp')) {
+            $destinationPath = 'cust_doc/';
+            $imageDisplay = date('YmdHis') . "_" . $request->file('sppkp')->getClientOriginalName();
+            $files->move($destinationPath, $imageDisplay);
+            $update['sppkp_image'] = "$imageDisplay";
+            Customer::where('id',$id)->update($update);
+        }
 
-        $nama_file = $image->getClientOriginalName();
+        if ($files = $request->file('toko')) {
+            $destinationPath = 'cust_doc/';
+            $imageDisplay = date('YmdHis') . "_" . $request->file('toko')->getClientOriginalName();
+            $files->move($destinationPath, $imageDisplay);
+            $update['toko_image'] = "$imageDisplay";
+            Customer::where('id',$id)->update($update);
+        }
 
-        $folder_upload = 'imagedoc';
-        
-        $image->move($folder_upload,$nama_file);
-
-        $cust_code = substr($nama_file,0,5);
-
-        $cust_name = substr($nama_file,0,100);
-
-
-        UploadDoc::create([
-            'cust_code' => $cust_code,
-            'cust_name' => $cust_name,
-            'image' => $nama_file,
-            'doc_type' => $docType,
-        ]);
-
+        if ($files = $request->file('owner')) {
+            $destinationPath = 'cust_doc/';
+            $imageDisplay = date('YmdHis') . "_" . $request->file('owner')->getClientOriginalName();
+            $files->move($destinationPath, $imageDisplay);
+            $update['owner_image'] = "$imageDisplay";
+            Customer::where('id',$id)->update($update);
+        }
         return redirect()->back();
+    
     }
 
-    public function delete($id)
-    {   
-        $image = UploadDoc::where('upload_id',$id)->first();
-        File::delete('imagedoc/'.$image->file);
-
-        UploadDoc::where('upload_id',$id)->delete();
-
-        return redirect()->back();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
-    {
+    {   
         //
     }
+
 }

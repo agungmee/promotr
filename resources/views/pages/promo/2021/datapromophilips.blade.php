@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-@section('title','PromoTR - Data LEDClub 2021')
-@section('title_header','Data LEDClub 2021')
+@section('title','PromoTR - Philips 2021')
+@section('title_header','Monitoring Promo Philips 2021')
 
 <!-- Upload Data -->
 <div class="modal fade" id="uploadData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action=" {{route('philips2021upload')}} " enctype="multipart/form-data">
+    <form method="post" action=" {{url('philips/promo/upload')}} " enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Upload Data LEDClub</h5>
@@ -144,8 +144,8 @@
 
 <div class="modal fade" id="editDataValidasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    @foreach ($dataledclub2021 as $data)
-    <form method="post" action=" dataledclub2021/validasi/{{$data->id}} " enctype="multipart/form-data">
+    @foreach ($dataPromoPhilips as $data)
+    <form method="post" action=" philips/promo/validasi/{{$data->id}} " enctype="multipart/form-data">
       @endforeach
       <div class="modal-content">
         <div class="modal-header">
@@ -185,12 +185,12 @@
               <a href="#"><button type="button" class="btn btn-primary mr-1"><i class="fas fa-file-export"></i> Export </button></a>  
             </div>
           <div class="card-header-form">
-            <form action=" {{route('dataledclub2021-search')}} " method="GET" role="search">
+            <form action="dataledpromoPhilips/search" method="GET" role="search">
               {{ csrf_field() }}
               <div class="input-group">
                 <input type="search" class="form-control" name="search" placeholder="Search" id="search">
                 <div class="input-group-btn">
-                  <button class="btn btn-primary"><i class="fas fa-search"></i></button><a href=" {{route('dataledclub2021')}} " button class="btn btn-success"><i class="fas fa-sync"></i></a>
+                  <button class="btn btn-primary"><i class="fas fa-search"></i></button><a href=" {{url('philips/promo')}} " button class="btn btn-success"><i class="fas fa-sync"></i></a>
                 </div>
               </div>
             </form>
@@ -208,7 +208,8 @@
                 </th> --}}
                 <th>Nama Customer</th>
                 <th>Teritori</th>
-                <th>Periode</th>
+                <th>Periode Tahun</th>
+                <th>Periode Bulan</th>
                 <th>Nama Sales</th>
                 <th>Paket</th>
                 <th>Size LED (p)</th>
@@ -235,10 +236,11 @@
                 }
               ?>
 
-            @foreach ($dataledclub2021 as $led2021)
+            @foreach ($dataPromoPhilips as $led2021)
               <tr>
                 <td> {{$led2021->cust_name}} </td>
                 <td> {{$led2021->cust_site}} </td>
+                <td>  </td>
                 <td> {{$led2021->promo_periode}} </td>
                 <td>  </td>
                 <td> {{$led2021->promo_paket}} </td>
@@ -250,41 +252,42 @@
                 <td> {{$led2021->t_wifi}} </td>
                 <p class="imgList" style="max-width: 1000px;">
                 @if ( Str::length($led2021->image1) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image1) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image1) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image1) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image1) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif 
                 @if ( Str::length($led2021->image2) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image2) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image2) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image2) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image2) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif 
                 @if ( Str::length($led2021->image3) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image3) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image3) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image3) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image3) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif
                 @if ( Str::length($led2021->image4) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image4) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image4) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image4) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image4) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif 
                 @if ( Str::length($led2021->image5) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image5) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image5) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image5) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image5) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif 
                 @if ( Str::length($led2021->image6) > 0)
-                <td><a href=" {{ url('/promo/dataledclub2021/'.$led2021->image6) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/dataledclub2021/'.$led2021->image6) }} " alt=""></a></td>
+                <td><a href=" {{ url('/promo/datapromophilips/'.$led2021->image6) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/promo/datapromophilips/'.$led2021->image6) }} " alt=""></a></td>
                 @else
                 <td> No Image </td>
                 @endif 
                 </p>
                 <td>{{ rupiah($led2021->nilai_benefit)}}</td>
-                <td class=""> <a href="#"><i class="fas fa-edit" data-toggle="modal" data-target="#editDataValidasi"></i></a>  {{ $led2021->validation }} </td>
+                <td class=""> <a href="#"><i class="btn btn-primary fas fa-edit" data-toggle="modal" data-target="#editDataValidasi">Pending</i></a>  {{ $led2021->validation }} </td>
                 <td>
-                <div class="input-group-btn">
-                  <a href="#"><i class="fas fa-edit"></i></a> | <a href=" dataledclub2021/delete/{{$led2021->id}}" onclick="return confirm('Yakin Mau Hapus?');"><i class="fas fa-trash" style="color: red;"></i></a>
+                <div class="btn-group" role="group">
+                  <a href="#" type="button" class="btn btn-primary"><i class="fas fa-edit">Edit</i></a>
+                  <a href=" philips/delete/{{$led2021->id}}"  type="button" class="btn btn-danger" onclick="return confirm('Yakin Mau Hapus?');"><i class="fas fa-trash">Delete</i></a>
                 </div>
                 </td>
               </tr>
@@ -293,20 +296,4 @@
     </div>
   </div>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-{{-- <script type="text/javascript">
-$(document).ready(function(){
-  $(".zoom").fancybox({
-    'overlayShow'   : false,
-    'transitionIn'  : 'elastic',
-    'transitionOut' : 'elastic'
-  });
-}); 
-</script> --}}
-
 @endsection
-
-

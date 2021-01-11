@@ -18,16 +18,16 @@ Route::post('customer-import', 'CustomerController@import')->name('customer-impo
 
 // Route Customer Dokumentasi
 Route::get('doc-customer','CustomerController@docIndex')->name('doc-index')->middleware('userauth');
-Route::post('doc-upload','CustomerController@docUpload')->name('doc-upload')->middleware('userauth');
-Route::get('doc-customer/delete/{id}','CustomerController@delete')->middleware('userauth');
+Route::post('doc-customer/update/{id}','CustomerController@docUpload')->middleware('userauth');
+Route::get('doc-customer/delete/{id}','CustomerController@destroy')->middleware('userauth');
 
 // Route Promo LEDClub 2021
-Route::get('philips2021','PromoController@philips2021Index')->name('philips2021')->middleware('userauth');
+Route::get('philips-promo','PromoController@promoPhilipsIndex')->middleware('userauth');
 Route::post('philips2021import','PromoController@philips2021Upload')->name('philips2021import')->middleware('userauth');
-Route::get('dataledclub2021','PromoController@dataLedclubIndex')->name('dataledclub2021')->middleware('userauth');
-Route::post('philips2021upload','PromoController@dataLedclubUpload')->name('philips2021upload')->middleware('userauth');
-Route::get('dataledclub2021/delete/{id}','PromoController@destroy')->middleware('userauth');
-Route::get('dataledclub2021/edit/{id}','PromoController@edit')->middleware('userauth');
-Route::post('dataledclub2021/validasi/{id}','PromoController@validasi')->middleware('userauth');
-Route::get('dataledclub2021/search','PromoController@search')->name('dataledclub2021-search')->middleware('userauth');
+Route::get('philips-promo/data','PromoController@dataPromoPhilipsIndex')->middleware('userauth');
+Route::post('philips-promo/upload','PromoController@dataPromoPhilipsUpload')->middleware('userauth');
+Route::get('philips-promo/delete/{id}','PromoController@destroy')->middleware('userauth');
+Route::post('philips-promo/validasi/{id}','PromoController@validasi')->middleware('userauth');
+Route::get('philips-promo/search','PromoController@search')->middleware('userauth');
+
 

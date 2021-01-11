@@ -91,8 +91,8 @@
                 <td> <?php echo e($d->cust_code); ?> </td>
                 <td> <?php echo e($d->cust_name); ?> </td>
                 <td> <?php echo e($d->doc_type); ?> </td>
-                <td><img width="100px" src=" <?php echo e(url('/imagedoc/'.$d->image)); ?> " alt="">  </td>
-                <td><a href="doc-customer/delete/<?php echo e($d->upload_id); ?>" class="btn btn-danger">Delete</a></td>
+                <td><a href=" <?php echo e(url('/imagedoc/'.$d->image)); ?> " data-fancybox="images"><img width="100px" src=" <?php echo e(url('/imagedoc/'.$d->image)); ?> " alt="">  </a></td>
+                <td><a href="doc-customer/delete/<?php echo e($d->upload_id); ?>" class="btn btn-danger" onclick="return confirm('Yakin Mau Hapus?');">Delete</a></td>
               </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>

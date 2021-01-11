@@ -47,6 +47,53 @@
   </div>
 </div>
 
+{{-- Modal Edit Data Image --}}
+
+<div class="modal fade" id="editDataImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    @foreach ($customer as $cust)
+    <form method="post" action=" doc-customer/update/{{$cust->id }} " enctype="multipart/form-data">
+      @endforeach
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Dokumen Customer</h5>
+        </div>
+        <div class="modal-body">
+
+          {{ csrf_field() }}
+
+          <div class="form-group">
+            <label>Foto KTP</label>
+            <div class="form-group">
+              <input name="ktp" type="file">
+            </div>
+            <label>Foto NPWP</label>
+            <div class="form-group">
+              <input name="npwp" type="file">
+            </div>
+            <label>Foto SPPKP</label>
+            <div class="form-group">
+              <input name="sppkp" type="file">
+            </div>
+            <label>Foto Toko</label>
+            <div class="form-group">
+              <input name="toko" type="file">
+            </div>
+            <label>Foto Owner Toko</label>
+            <div class="form-group">
+              <input name="owner" type="file">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="row">
     <div class="col-12">
       <div class="card">
@@ -85,6 +132,7 @@
                 <th>NPWP</th>
                 <th>SPPKP</th>
                 <th>Foto Toko</th>
+                <th>Foto Owner</th>
                 <th>Action</th>
               </tr>
               @foreach ($customer as $cust)
@@ -100,11 +148,45 @@
                 <td> {{$cust->cust_site}} </td>
                 <td> {{$cust->cust_address}} </td>
                 <td> {{$cust->sales_name}} </td>
-                <td><div class="badge badge-success">OK</div></td>
-                <td><div class="badge badge-success">OK</div></td>
-                <td><div class="badge badge-success">OK</div></td>
-                <td><div class="badge badge-success">OK</div></td>
-                <td><a href="#" class="btn btn-primary">Edit</a></td>
+                <p class="imgList" style="max-width: 1000px;">
+
+                  @if ( Str::length($cust->ktp_image) > 0)
+                    <td><a href=" {{ url('/cust_doc/'.$cust->ktp_image) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/cust_doc/'.$cust->ktp_image) }} " alt=""></a></td>
+                  @else
+                    <td> No Image </td>
+                  @endif 
+                
+                  @if ( Str::length($cust->npwp_image) > 0)
+                    <td><a href=" {{ url('/cust_doc/'.$cust->npwp_image) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/cust_doc/'.$cust->npwp_image) }} " alt=""></a></td>
+                  @else
+                    <td> No Image </td>
+                  @endif 
+
+                  @if ( Str::length($cust->sppkp_image) > 0)
+                    <td><a href=" {{ url('/cust_doc/'.$cust->sppkp_image) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/cust_doc/'.$cust->sppkp_image) }} " alt=""></a></td>
+                  @else
+                    <td> No Image </td>
+                  @endif 
+
+                  @if ( Str::length($cust->toko_image) > 0)
+                    <td><a href=" {{ url('/cust_doc/'.$cust->toko_image) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/cust_doc/'.$cust->toko_image) }} " alt=""></a></td>
+                  @else
+                    <td> No Image </td>
+                  @endif 
+
+                  @if ( Str::length($cust->owner_image) > 0)
+                    <td><a href=" {{ url('/cust_doc/'.$cust->owner_image) }} " data-fancybox="images"> <img width="100px" src=" {{ url('/cust_doc/'.$cust->owner_image) }} " alt=""></a></td>
+                  @else
+                    <td> No Image </td>
+                  @endif 
+
+                  <td>
+                    <div class="btn-group" role="group">
+                      <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editDataImage"> Edit </a>
+                      <a href=" " type="button" class="btn btn-danger" onclick="return confirm('Yakin Mau Hapus?');"> Delete </i></a>
+                    </div>
+                  </td>
+    
               </tr>
               @endforeach
             </table>

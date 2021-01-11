@@ -14,23 +14,23 @@
 
           <li class="menu-header">Promo</li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-percent"></i></i> <span>Monitoring 2021</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-percent"></i></i> <span>Monitoring Promo</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href=" <?php echo e(route('philips2021')); ?> ">LEDClub 2021</a></li>
+              <li><a class="nav-link" href=" <?php echo e(url('philips-promo')); ?> ">Promo Philips</a></li>
             </ul>
           </li>
 
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i></i> <span>Data Promo 2021</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i></i> <span>Data Promo</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href=" <?php echo e(route('dataledclub2021')); ?> ">LEDClub 2021</a></li>
+              <li><a class="nav-link" href=" <?php echo e(url('philips-promo/data')); ?> ">Data Philips</a></li>
             </ul>
           </li>
 
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-check-double"></i></i> <span>Validasi 2021</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-check-double"></i></i> <span>Validasi Promo</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href=" <?php echo e(route('dataledclub2021')); ?> ">LEDClub 2021</a></li>
+              <li><a class="nav-link" href="  ">Validasi Philips</a></li>
             </ul>
           </li>
 
@@ -39,19 +39,14 @@
             <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-friends"></i> <span>Customers</span></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href=" <?php echo e(route('list-customers')); ?> ">List Customers</a></li>
-              <li><a class="nav-link" href=" <?php echo e(route('doc-index')); ?> ">Upload Dokumen</a></li>
             </ul>
           </li>
 
-          <li class="menu-header">Pages</li>
+          <li class="menu-header">User & Role</li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>User</span></a>
             <ul class="dropdown-menu">
-              <li><a href="auth-forgot-password.html">Forgot Password</a></li>
-              <li><a href="auth-login.html">Login</a></li>
-              <li><a class="beep beep-sidebar" href="auth-login-2.html">Login 2</a></li>
-              <li><a href="auth-register.html">Register</a></li>
-              <li><a href="auth-reset-password.html">Reset Password</a></li>
+              <li><a href="#">Manage Role</a></li>
             </ul>
           </li>
         </ul>

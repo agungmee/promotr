@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataLedclub2021 extends Migration
+class CreateDataPhilipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateDataLedclub2021 extends Migration
      */
     public function up()
     {
-        Schema::create('data_ledclub2021', function (Blueprint $table) {
+        Schema::create('data_philips', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cust_site');
+            $table->string('promo_by_year')->nullable();
             $table->string('cust_code');
             $table->string('cust_name');
             $table->string('promo_name');
@@ -35,7 +36,7 @@ class CreateDataLedclub2021 extends Migration
             $table->string('image6');
             $table->integer('nilai_benefit');
             $table->string('validation')->nullable();
-            $table->string('last_updated_by')->nullable();
+            $table->string('last_updated_by');
             $table->timestamps();
         });
     }

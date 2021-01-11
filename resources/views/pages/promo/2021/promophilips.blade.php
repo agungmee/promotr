@@ -6,7 +6,7 @@
 <!-- Import Excel -->
 <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form method="post" action=" {{route('philips2021upload')}} " enctype="multipart/form-data">
+    <form method="post" action="  " enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
@@ -77,18 +77,18 @@
                   return $format_rupiah;
                 }
               ?>
-              @foreach ($promo2021 as $pr2021)
+              @foreach ($philipsPromo as $promo)
               <tr>
-                <td> {{$pr2021->cust_name}} </td>
-                <td> {{$pr2021->cust_site}} </td>
-                <td> {{$pr2021->promo_name}} </td>
-                <td> {{$pr2021->promo_period}} </td>
-                <td> {{$pr2021->sales_name}} </td>
-                <td> {{ rupiah($pr2021->nilai_benefit)}} </td>
-                <td> {{ rupiah($pr2021->nilai_realisasi)}} </td>
-                <td> {{rupiah($pr2021->nilai_benefit - $pr2021->nilai_realisasi)}} </td>
+                <td> {{$promo->cust_name}} </td>
+                <td> {{$promo->cust_site}} </td>
+                <td> {{$promo->promo_name}} </td>
+                <td> {{$promo->promo_period}} </td>
+                <td> {{$promo->sales_name}} </td>
+                <td> {{ rupiah($promo->nilai_benefit)}} </td>
+                <td> {{ rupiah($promo->nilai_realisasi)}} </td>
+                <td> {{rupiah($promo->nilai_benefit - $promo->nilai_realisasi)}} </td>
 
-                @if ($pr2021->nilai_benefit - $pr2021->nilai_realisasi > 0)
+                @if ($promo->nilai_benefit - $promo->nilai_realisasi > 0)
                 <td>Belum Selesai</td>
                 @else
                 <td>Selesai</td>
@@ -98,7 +98,7 @@
               </tr>
               @endforeach
             </table>
-            {{ $promo2021->links() }}
+            {{ $philipsPromo->links() }}
           </div>
         </div>
       </div>
